@@ -1,0 +1,28 @@
+{
+  "name": "frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^2.0.2",
+    "autoprefixer": "^10.4.7",
+    "postcss": "^8.4.14",
+    "postcss-load-config": "^4.0.1",
+    "svelte": "^3.55.1",
+    "svelte-preprocess": "^4.10.7",
+    "tailwindcss": "^3.1.5",
+    "vite": "^4.1.0"
+  },
+  "dependencies": {
+    "@tanstack/svelte-table": "^8.9.1",
+    "axios": "^1.4.0",
+    "daisyui": "^2.51.6",
+    "svelte-french-toast": "^1.0.4-beta.0",
+    "svelte-spa-router": "^3.3.0"
+  }
+}
