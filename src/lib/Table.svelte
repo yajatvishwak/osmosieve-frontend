@@ -169,25 +169,6 @@
           <button on:click={nextPage} class="btn rounded-full">></button>
           <button on:click={prevPage} class="btn rounded-full">P</button>
         </div>
-
-        <div class="flex gap-2 items-center m-5">
-          <div
-            class="mx-1 text-white bg-gray-600 rounded-full w-8 h-8 flex items-center justify-center"
-          >
-            {currentPage + 1}
-          </div>
-          <div
-            class="mx-1 text-white bg-gray-600 rounded-full w-8 h-8 flex items-center justify-center"
-          >
-            {currentPage + 2}
-          </div>
-          <div
-            class="mx-1 text-white bg-gray-600 rounded-full w-8 h-8 flex items-center justify-center"
-          >
-            {currentPage + 3}
-          </div>
-          <div>...</div>
-        </div>
       {:else}
         <div class="flex items-center justify-between">
           <div class="text-xl">
