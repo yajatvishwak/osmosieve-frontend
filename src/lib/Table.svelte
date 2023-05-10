@@ -18,7 +18,7 @@
     const res = await axios
       .post("http://localhost:5000/transform-data", {
         command,
-        filename: "MOCK_DATA.csv",
+        filename: params.filename,
       })
       .catch((err) => {
         console.log(err);

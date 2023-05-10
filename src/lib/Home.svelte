@@ -1,3 +1,16 @@
+<script>
+  import axios from "axios";
+  import { push } from "svelte-spa-router";
+  let files;
+  const uploadFile = () => {
+    const formData = new FormData();
+    formData.append("file", files[0]);
+    axios.post("http://localhost:5000/process-file", formData).then((res) => {
+      push("/result/" + res.data.filename);
+    });
+  };
+</script>
+
 <section class="h-screen w-screen bg-black text-white">
   <div
     class="flex flex-col justify-center h-full mx-auto max-w-screen-lg w-full"
@@ -9,7 +22,10 @@
       </div>
       <div class="text-sm opacity-50">(maybe)</div>
     </div>
-    <div
+    <input type="file" bind:files class="hidden" name="" id="gomma" />
+
+    <label
+      for="gomma"
       class="bg-gray-950 flex justify-center gap-5 items-center flex-col p-5 mt-7 border border-dashed border-gray-800 rounded-xl"
     >
       <svg
@@ -23,10 +39,17 @@
         />
       </svg>
       <div class="flex flex-col items-center justify-center mb-5">
-        <div class="text-xl font-bold">Upload your file</div>
-        <div class="opacity-30">(.csv works)</div>
+        {#if files}
+          <div class="text-xl font-bold">File uploaded</div>
+          <div class="opacity-30">{files[0].name}</div>
+        {:else}
+          <div class="text-xl font-bold">Upload your file</div>
+          <div class="opacity-30">(.csv works)</div>
+        {/if}
       </div>
-    </div>
-    <button class="btn mt-5 bg-purple-700 text-white">Submit</button>
+    </label>
+    <button on:click={uploadFile} class="btn mt-5 bg-purple-700 text-white"
+      >Submit</button
+    >
   </div>
 </section>
